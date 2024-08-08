@@ -35,7 +35,13 @@ btn.addEventListener('click',()=>{
 let getWeatherData = async (city)=>{
     let data;
     const url = `http://api.weatherapi.com/v1/current.json?key=d0e7d8f7766e4b6bb1f50236240808&q=${city}`;
-    await fetch(url)
+    await fetch(url, {
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Content-Type": "text/plain"
+        }
+    })
+    
     .then(res=>res.json())
     .then(data=>{
         console.log(data);
